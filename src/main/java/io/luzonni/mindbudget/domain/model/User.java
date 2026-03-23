@@ -2,9 +2,11 @@ package io.luzonni.mindbudget.domain.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.UuidGenerator;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.util.UUID;
 
 @Entity
 @Table(name = "users")
@@ -12,33 +14,22 @@ import java.util.Date;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @UuidGenerator()
+    private UUID id;
     @Column
-    private String name;
+    private String username;
     @Column
     private String email;
     @Column(name = "password_hash")
     private String passwordHash;
     @Column
-    private Date birthday;
+    private LocalDate birthday;
     @Column(name = "created_at")
     private LocalDateTime createdAt;
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
-
-    @PrePersist
-    public void prePersist() {}
 
     @PrePersist
     public void onCreate() {
         this.createdAt = LocalDateTime.now();
-        this.updatedAt = LocalDateTime.now();
-    }
-
-    @PreUpdate
-    public void onUpdate() {
-        this.updatedAt = LocalDateTime.now();
     }
 
 }

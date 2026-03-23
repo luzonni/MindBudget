@@ -1,62 +1,84 @@
-# code-with-quarkus
+# MindBudget
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+MindBudget é uma API REST para gerenciamento financeiro pessoal com foco em análise comportamental. O sistema vai além do registro de transações, buscando identificar padrões de consumo e gerar insights que apoiem decisões financeiras mais conscientes.
 
-If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
+---
 
-## Running the application in dev mode
+## Objetivo
 
-You can run your application in dev mode that enables live coding using:
+Fornecer uma base sólida para controle financeiro, combinada com mecanismos de análise que permitam ao usuário compreender seus hábitos de gasto ao longo do tempo.
 
-```shell script
-./mvnw quarkus:dev
-```
+---
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at <http://localhost:8080/q/dev/>.
+## Escopo
 
-## Packaging and running the application
+A aplicação contempla:
 
-The application can be packaged using:
+- Registro de receitas e despesas
+- Organização por categorias
+- Consulta por períodos e filtros
+- Identificação de padrões de consumo
+- Geração de indicadores e resumos financeiros
 
-```shell script
-./mvnw package
-```
+---
 
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
+## Funcionalidades Planejadas
 
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
+### Gestão de Dados
 
-If you want to build an _über-jar_, execute the following command:
+- Cadastro de transações financeiras
+- Definição e gerenciamento de categorias
+- Associação de transações a usuários
 
-```shell script
-./mvnw package -Dquarkus.package.jar.type=uber-jar
-```
+### Análise de Comportamento
 
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
+- Detecção de gastos recorrentes
+- Identificação de categorias com maior impacto financeiro
+- Análise de variação de gastos entre períodos
 
-## Creating a native executable
+### Insights e Indicadores
 
-You can create a native executable using:
+- Resumo mensal consolidado
+- Tendência de evolução de gastos
+- Alertas baseados em desvios de comportamento
 
-```shell script
-./mvnw package -Dnative
-```
+---
 
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using:
+## Arquitetura (planejada)
 
-```shell script
-./mvnw package -Dnative -Dquarkus.native.container-build=true
-```
+- API REST baseada em Java com Quarkus
+- Banco de dados relacional (PostgreSQL)
+- Autenticação via JWT
+- Documentação com OpenAPI (Swagger)
+- Containerização com Docker
 
-You can then execute your native executable with: `./target/code-with-quarkus-1.0.0-SNAPSHOT-runner`
+---
 
-If you want to learn more about building native executables, please consult <https://quarkus.io/guides/maven-tooling>.
+## Requisitos Não Funcionais
 
-## Provided Code
+- Separação de dados por usuário
+- Estrutura preparada para escalabilidade
+- Código organizado com foco em manutenção e testes
+- Logs e tratamento consistente de erros
 
-### REST
+---
 
-Easily start your REST Web Services
+## Roadmap
 
-[Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
+- Implementação da base CRUD de transações
+- Sistema de autenticação e autorização
+- Módulo inicial de análise (gastos por categoria e período)
+- Evolução para análise comportamental mais avançada
+- Deploy em ambiente de produção
+
+---
+
+## Diferencial
+
+O principal diferencial do MindBudget é a tentativa de transformar dados financeiros em informação útil, priorizando análise e interpretação ao invés de simples armazenamento.
+
+---
+
+## Status
+
+Em desenvolvimento
